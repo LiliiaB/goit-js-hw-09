@@ -18,16 +18,13 @@ window.addEventListener('DOMContentLoaded', () => {
   if (storedData) {
     const parsedData = JSON.parse(storedData);
     inputEl.value = parsedData.email;
-    textareaEl.value = parsedData.textarea;
-  } else {
-    inputEl.value = '';
-    textareaEl.value = '';
+    textareaEl.value = parsedData.message;
   }
 });
 
 feedbackFormEl.addEventListener('submit', handleSubmit);
 
-function handleSubmit() {
+function handleSubmit(event) {
   event.preventDefault();
   if (inputEl.value !== '' && textareaEl.value !== '') {
     console.log(JSON.parse(localStorage.getItem(localStorageKey)));
